@@ -64,4 +64,4 @@ storiesOf('ToolbarComponent',module)
     "starred": true,
     "labels": []
   }
-]} selectedMessageCount = '3'/>)
+]} selectedMessageCount = {3}/>)
