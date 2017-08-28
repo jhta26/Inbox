@@ -3,6 +3,9 @@ import React from 'react'
 
 function ToolbarComponent({messages,selectedMessageCount}){
 
+const symbol = messages.map(a=>a.read==false).length > 0 ? (messages.filter(a=>a.read==false).length === messages.length?"fa fa-check-square-o":"fa fa-minus-square-o"):"fa fa-square-o"
+
+
   return (
 <div className="row toolbar">
   <div className="col-md-12">
@@ -12,7 +15,7 @@ function ToolbarComponent({messages,selectedMessageCount}){
     </p>
 
     <button className="btn btn-default">
-      <i className="fa fa-minus-square-o"></i>
+      <i className={symbol}></i>
     </button>
 
     <button className="btn btn-default">

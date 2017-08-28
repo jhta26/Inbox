@@ -126,11 +126,13 @@ var items =[
     "labels": []
   }
 ]
+
+var selectedMessageIds = [1,4,5]
 storiesOf('InboxPageLayout',module)
 .add('Happy path',()=>
 <InboxPageLayout>
   <ToolbarComponent messages={messages} selectedMessageCount = {selectedMessageIds.length} />
-  <MessagesComponent items={items} selectedMessageIds={[1,4,5]}/>
+  <MessagesComponent items={items} selectedMessageIds={selectedMessageIds}/>
   </InboxPageLayout>
  )
 
