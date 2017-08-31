@@ -1,18 +1,14 @@
-import React from 'react'
-import ToolbarComponent from './ToolbarComponent'
-import MessagesComponent from './MessagesComponent'
+import React from 'react';
+import ToolbarComponent from './ToolbarComponent';
+import MessagesComponent from './MessagesComponent';
 
-
-
-function InboxPageLayout(props){
-	return (
-<div className='InboxPageLayout'>
-{props.children[0]}
-{props.children[1]}
-
-</div>
-
-	
-	)
+function InboxPageLayout(props) {
+  return (
+    <div className="InboxPageLayout">
+      {props.children[0]}
+      {props.children[1]}
+      {props.children[2]}
+    </div>
+  );
 }
-export default (InboxPageLayout)
+export default InboxPageLayout;

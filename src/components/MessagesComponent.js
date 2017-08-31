@@ -1,11 +1,32 @@
-import React from 'react'
-import MessageComponent from './MessageComponent'
+import React from 'react';
+import MessageComponent from './MessageComponent';
 
-function MessagesComponent({items,selectedMessageIds}){
-	return (
-		<div className='MessagesComponent'>
-	{items.map((item,index)=><MessageComponent key={index} selected={selectedMessageIds.includes(item.id)} message={item} />)}
-	</div>
-	)
+function MessagesComponent({
+  messages,
+  selectedMessageIds,
+  onMarkAsReadMessage,
+  onSelectMessage,
+  onDeselectMessage,
+  onStarMessage,
+  onUnstarMessage
+}) {
+  return (
+    <div className="MessagesComponent">
+      {messages.map((message, index) =>
+        <MessageComponent
+          key={index}
+          selected={selectedMessageIds.includes(message.id)}
+          message={message}
+          selectedMessageIds={selectedMessageIds}
+          onMarkAsReadMessage={onMarkAsReadMessage}
+          onSelectMessage={onSelectMessage}
+          onDeselectMessage={onDeselectMessage}
+          onStarMessage={onStarMessage}
+          onUnstarMessage={onUnstarMessage}
+        />
+      )}
+    </div>
+  );
 }
-export default (MessagesComponent)
+
+export default MessagesComponent;
