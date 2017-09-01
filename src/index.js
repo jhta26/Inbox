@@ -85,29 +85,26 @@ var selectedMessageCount = selectedMessageIds.length;
 var showComposeForm = false;
 
 function onMarkAsReadMessage(messageId) {
-  let theTarget = messages.find(a => a.id === messageId);
-  theTarget.read = true;
+  messages.find(a => a.id === messageId).read = true;
   render();
 }
 
 function onSelectMessage(messageId) {
-  let theTarget = messages.find(a => a.id === messageId);
-  selectedMessageIds.push(theTarget.id);
+  selectedMessageIds.push(messages.find(a => a.id === messageId).id);
   selectedMessageCount++;
   render();
 }
 
 function onDeselectMessage(messageId) {
-  let theTarget = messages.find(a => a.id === messageId);
-  selectedMessageIds = selectedMessageIds.filter(a => a !== theTarget.id);
+  selectedMessageIds = selectedMessageIds.filter(
+    a => a !== messages.find(a => a.id === messageId).id
+  );
   selectedMessageCount--;
-  console.log(selectedMessageIds);
   render();
 }
 
 function onStarMessage(messageId) {
-  let theTarget = messages.find(message => message.id === messageId);
-  theTarget.starred = true;
+  messages.find(message => message.id === messageId).starred = true;
   render();
 }
 
@@ -145,53 +142,54 @@ function onDeselectAllMessages() {
 }
 
 function onMarkAsReadSelectedMessages() {
-  let targets = messages.filter(a => selectedMessageIds.includes(a.id));
-  targets.map(a => (a.read = true));
+  messages
+    .filter(a => selectedMessageIds.includes(a.id))
+    .map(a => (a.read = true));
   render();
 }
 
 function onMarkAsUnreadSelectedMessages() {
-  let targets = messages.filter(a => selectedMessageIds.includes(a.id));
-  targets.map(a => (a.read = false));
+  messages
+    .filter(a => selectedMessageIds.includes(a.id))
+    .map(a => (a.read = false));
   render();
 }
 
 function onApplyLabelSelectedMessages(label) {
-  let targets = messages.filter(
-    a => selectedMessageIds.includes(a.id) === true
-  );
-  targets.map(
-    a =>
-      a.labels.includes(label) === false
-        ? (a.labels = a.labels.concat(label))
-        : (a.labels = a.labels)
-  );
+  messages
+    .filter(a => selectedMessageIds.includes(a.id) === true)
+    .map(
+      a =>
+        a.labels.includes(label) === false
+          ? (a.labels = a.labels.concat(label))
+          : (a.labels = a.labels)
+    );
+
   render();
 }
 
 function onRemoveLabelSelectedMessages(label) {
-  let targets = messages.filter(
-    a => selectedMessageIds.includes(a.id) === true
-  );
-  targets.forEach(
-    a =>
-      a.labels.includes(label)
-        ? a.labels.splice(a.labels.indexOf(label), 1)
-        : (a.labels = a.labels)
-  );
+  messages
+    .filter(a => selectedMessageIds.includes(a.id) === true)
+    .forEach(
+      a =>
+        a.labels.includes(label)
+          ? a.labels.splice(a.labels.indexOf(label), 1)
+          : (a.labels = a.labels)
+    );
   render();
 }
 
 function onDeleteSelectedMessages() {
   let targets = messages.filter(a => selectedMessageIds.includes(a.id));
-  let targLength = targets.length
-  while(targLength>0){
-  messages.map(
-    a => (targets.includes(a) ? messages.splice(messages.indexOf(a), 1) : a)
-  );
-  targLength--
-  render();
-}
+  let targLength = targets.length;
+  while (targLength > 0) {
+    messages.map(
+      a => (targets.includes(a) ? messages.splice(messages.indexOf(a), 1) : a)
+    );
+    targLength--;
+    render();
+  }
 }
 
 function render() {
