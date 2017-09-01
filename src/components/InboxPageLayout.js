@@ -1,6 +1,5 @@
 import React from 'react';
-import ToolbarComponent from './ToolbarComponent';
-import MessagesComponent from './MessagesComponent';
+
 
 function InboxPageLayout(props) {
   return (

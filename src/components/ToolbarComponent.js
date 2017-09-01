@@ -1,62 +1,84 @@
 import React from 'react';
 
-function ToolbarComponent({
+export default function ToolbarComponent({
   messages,
-  selected,
   selectedMessageCount,
   onOpenComposeForm,
   onSelectAllMessages,
   onDeselectAllMessages,
-  onDeleteSelectedMessages,
   onMarkAsReadSelectedMessages,
   onMarkAsUnreadSelectedMessages,
   onApplyLabelSelectedMessages,
-  onRemoveLabelSelectedMessages
+  onRemoveLabelSelectedMessages,
+  onDeleteSelectedMessages
 }) {
-  let symbol =
-    messages.map(a => a.read == false).length > 0
-      ? messages.filter(a => a.read == false).length === messages.length
-        ? 'fa fa-check-square-o'
-        : 'fa fa-minus-square-o'
-      : 'fa fa-square-o';
 
-  const _handleRead = () => {
+
+// { messages.filter(a => a.read === false).length > 0
+//       ? messages.filter(a => a.read ===false).length === messages.length
+//         ? 'fa fa-check-square-o'
+//         : 'fa fa-minus-square-o'
+//       : 'fa fa-square-o'}
+
+
+
+  var _handleRead = () => {
     
     onMarkAsReadSelectedMessages();
   };
 
-  const _handleUnread = () => {
-    
+ var _handleUnread = () => {
+   
     onMarkAsUnreadSelectedMessages();
   };
 
-  const _handleCompose = () => {
+  var _handleCompose = () => {
     
     onOpenComposeForm();
   };
 
-  const _handleToggle = () => {
-    
-    onSelectAllMessages();
-    onDeselectAllMessages();
-  };
+  var _handleToggle=(event)=> {
+    event.preventDefault()
+      if(selectedMessageCount===messages.length){
+        onDeselectAllMessages()
+      }else{
+        onSelectAllMessages()
+      }
+      
+};
 
-  const _handleApplyLabel = event => {
+
+
+  const _handleApplyLabel = (event) => {
     event.preventDefault();
     onApplyLabelSelectedMessages(event.target.value);
   };
 
-  const _handleRemoveLabel = event => {
+  const _handleRemoveLabel = (event) => {
     event.preventDefault();
     onRemoveLabelSelectedMessages(event.target.value);
   };
+  const _handleDelete = ()=>{
+    onDeleteSelectedMessages()
+  }
+var unread = messages.filter(a => a.read === false).length
+var toggleButton= (messages.length===selectedMessageCount)?'fa fa-minus-square-o':((selectedMessageCount===0)?'fa fa-check-square-o':'fa fa-square-o')
+  // if(messages.length===selectedMessageCount){
+  //   return 'fa fa-minus-square-o'
+  // }
+  // if(messages.length>selectedMessageCount&&selectedMessageCount>0){
+  //   return 'fa fa-square-o'
+  // }
+  // if(selectedMessageCount===0){
+  //   return 'fa fa-check-square-o'
+  // }
 
   return (
     <div className="row toolbar">
       <div className="col-md-12">
         <p className="pull-right">
           <span className="badge badge">
-            {messages.map(a => a.read == false).length}
+            {unread}
           </span>
           unread messages
         </p>
@@ -65,8 +87,8 @@ function ToolbarComponent({
           <i className="fa fa-plus" onClick={_handleCompose} />
         </a>
 
-        <button className="btn btn-default" onClick={_handleToggle}>
-          <i className={symbol} />
+        <button className="btn btn-default" >
+        <i className={toggleButton} onClick={_handleToggle} />
         </button>
 
         <button className="btn btn-default" onClick={_handleRead}>
@@ -96,10 +118,10 @@ function ToolbarComponent({
         </select>
 
         <button className="btn btn-default">
-          <i className="fa fa-trash-o" />
+          <i className="fa fa-trash-o" onClick={_handleDelete}/>
         </button>
       </div>
     </div>
   );
 }
-export default ToolbarComponent;
+

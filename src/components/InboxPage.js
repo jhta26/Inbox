@@ -1,14 +1,14 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import InboxPageLayout from './InboxPageLayout';
 import './InboxPageLayout.story.css';
 import ToolbarComponent from './ToolbarComponent';
 import MessagesComponent from './MessagesComponent';
 import ComposeFormComponent from './ComposeFormComponent';
 
-export default function InboxPage(
+export default function InboxPage({
   messages,
   selectedMessageIds,
+  selectedMessageCount,
   showComposeForm,
   onOpenComposeForm,
   onSelectAllMessages,
@@ -25,7 +25,7 @@ export default function InboxPage(
   onUnstarMessage,
   onComposeFormSubmit,
   onComposeFormCancel
-) {
+}) {
   return (
     <div className="InboxPage">
       <InboxPageLayout>
@@ -37,11 +37,13 @@ export default function InboxPage(
           : null}
         <ToolbarComponent
           messages={messages}
+          selectedMessageCount={selectedMessageCount}
           onOpenComposeForm={onOpenComposeForm}
           onSelectAllMessages={onSelectAllMessages}
           onDeselectAllMessages={onDeselectAllMessages}
           onDeleteSelectedMessages={onDeleteSelectedMessages}
-          onMarkAsReadMessage={onMarkAsReadMessage}
+          onMarkAsReadSelectedMessages={onMarkAsReadSelectedMessages}
+          onMarkAsUnreadSelectedMessages={onMarkAsUnreadSelectedMessages}
           onApplyLabelSelectedMessages={onApplyLabelSelectedMessages}
           onRemoveLabelSelectedMessages={onRemoveLabelSelectedMessages}
         />

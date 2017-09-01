@@ -3,16 +3,15 @@ import { storiesOf } from '@storybook/react';
 import MessagesComponent from './MessagesComponent';
 import './MessagesComponent.story.css';
 
-storiesOf('MessagesComponent', module).add('Happy path', () =>
-  <MessagesComponent
-    messages={[
+
+
+var messages=[
       {
         id: 1,
         subject:
           "You can't input the protocol without calculating the mobile RSS protocol!",
         read: false,
         starred: true,
-        selected: true,
         labels: ['dev', 'personal']
       },
       {
@@ -21,7 +20,6 @@ storiesOf('MessagesComponent', module).add('Happy path', () =>
           "connecting the system won't do anything, we need to input the mobile AI panel!",
         read: false,
         starred: false,
-        selected: true,
         labels: []
       },
       {
@@ -30,7 +28,6 @@ storiesOf('MessagesComponent', module).add('Happy path', () =>
           'Use the 1080p HTTP feed, then you can parse the cross-platform hard drive!',
         read: false,
         starred: true,
-        selected: false,
         labels: ['dev']
       },
       {
@@ -38,7 +35,6 @@ storiesOf('MessagesComponent', module).add('Happy path', () =>
         subject: 'We need to program the primary TCP hard drive!',
         read: true,
         starred: false,
-        selected: true,
         labels: []
       },
       {
@@ -47,7 +43,6 @@ storiesOf('MessagesComponent', module).add('Happy path', () =>
           'If we override the interface, we can get to the HTTP feed through the virtual EXE interface!',
         read: false,
         starred: false,
-        selected: false,
         labels: ['personal']
       },
       {
@@ -55,7 +50,6 @@ storiesOf('MessagesComponent', module).add('Happy path', () =>
         subject: 'We need to back up the wireless GB driver!',
         read: true,
         starred: true,
-        selected: true,
         labels: []
       },
       {
@@ -63,7 +57,6 @@ storiesOf('MessagesComponent', module).add('Happy path', () =>
         subject: 'We need to index the mobile PCI bus!',
         read: true,
         starred: false,
-        selected: false,
         labels: ['dev', 'personal']
       },
       {
@@ -72,11 +65,14 @@ storiesOf('MessagesComponent', module).add('Happy path', () =>
           'If we connect the sensor, we can get to the HDD port through the redundant IB firewall!',
         read: true,
         starred: true,
-        selected: true,
         labels: []
       }
-    ]}
-    selectedMessageIds={[1, 4, 5]}
+    ]
+    var selectedMessageIds=[1,4,5]
+storiesOf('MessagesComponent', module).add('Happy path', () =>
+  <MessagesComponent
+    messages={messages}
+    selectedMessageIds={selectedMessageIds}
     onMarkAsReadMessage={itemId => console.log(itemId)}
     onSelectMessage={itemId => console.log(itemId)}
     onDeselectMessage={itemId => console.log(itemId)}

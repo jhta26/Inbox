@@ -9,8 +9,25 @@ storiesOf('MessageComponent', module).add('Happy path', () =>
       id: 1,
       subject:
         "You can't input the protocol without calculating the mobile RSS protocol!",
-      read: false,
+      read: true,
       starred: true,
+      labels: ['dev', 'personal']
+    }}
+    selected={true}
+    onMarkAsReadMessage={itemId => console.log(itemId)}
+    onSelectMessage={itemId => console.log(itemId)}
+    onDeselectMessage={itemId => console.log(itemId)}
+    onStarMessage={itemId => console.log(itemId)}
+    onUnstarMessage={itemId => console.log(itemId)}
+  />
+).add('no star',()=>
+<MessageComponent
+    message={{
+      id: 1,
+      subject:
+        "You can't input the protocol without calculating the mobile RSS protocol!",
+      read: false,
+      starred: false,
       selected: true,
       labels: ['dev', 'personal']
     }}
@@ -20,4 +37,41 @@ storiesOf('MessageComponent', module).add('Happy path', () =>
     onStarMessage={itemId => console.log(itemId)}
     onUnstarMessage={itemId => console.log(itemId)}
   />
+
+).add('read true',()=>
+<MessageComponent
+    message={{
+      id: 1,
+      subject:
+        "You can't input the protocol without calculating the mobile RSS protocol!",
+      read: true,
+      starred: false,
+      selected: true,
+      labels: ['dev', 'personal']
+    }}
+    onMarkAsReadMessage={itemId => console.log(itemId)}
+    onSelectMessage={itemId => console.log(itemId)}
+    onDeselectMessage={itemId => console.log(itemId)}
+    onStarMessage={itemId => console.log(itemId)}
+    onUnstarMessage={itemId => console.log(itemId)}
+  />
+
+).add('read false',()=>
+<MessageComponent
+    message={{
+      id: 1,
+      subject:
+        "You can't input the protocol without calculating the mobile RSS protocol!",
+      read: false,
+      starred: false,
+      selected: true,
+      labels: ['dev', 'personal']
+    }}
+    onMarkAsReadMessage={itemId => console.log(itemId)}
+    onSelectMessage={itemId => console.log(itemId)}
+    onDeselectMessage={itemId => console.log(itemId)}
+    onStarMessage={itemId => console.log(itemId)}
+    onUnstarMessage={itemId => console.log(itemId)}
+  />
+
 );

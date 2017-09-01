@@ -2,10 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import ToolbarComponent from './ToolbarComponent';
 import './ToolbarComponent.story.css';
-
-storiesOf('ToolbarComponent', module).add('Happy path', () =>
-  <ToolbarComponent
-    messages={[
+var messages=[
       {
         id: 1,
         subject:
@@ -69,7 +66,10 @@ storiesOf('ToolbarComponent', module).add('Happy path', () =>
         starred: true,
         labels: []
       }
-    ]}
+    ]
+storiesOf('ToolbarComponent', module).add('Happy path', () =>
+  <ToolbarComponent
+    messages={messages}
     selectedMessageCount={3}
     onOpenComposeForm={a => console.log(a)}
     onSelectAllMessages={a => console.log(a)}
@@ -80,4 +80,31 @@ storiesOf('ToolbarComponent', module).add('Happy path', () =>
     onApplyLabelSelectedMessages={a => console.log(a)}
     onRemoveLabelSelectedMessages={a => console.log(a)}
   />
+).add('no selected messages',()=>
+  <ToolbarComponent
+    messages={messages}
+    selectedMessageCount={0}
+    onOpenComposeForm={a => console.log(a)}
+    onSelectAllMessages={a => console.log(a)}
+    onDeselectAllMessages={a => console.log(a)}
+    onDeleteSelectedMessages={a => console.log(a)}
+    onMarkAsReadSelectedMessages={a => console.log(a)}
+    onMarkAsUnreadSelectedMessages={a => console.log(a)}
+    onApplyLabelSelectedMessages={a => console.log(a)}
+    onRemoveLabelSelectedMessages={a => console.log(a)}
+  />
+).add('all selected messages',()=>
+  <ToolbarComponent
+    messages={messages}
+    selectedMessageCount={messages.length}
+    onOpenComposeForm={a => console.log(a)}
+    onSelectAllMessages={a => console.log(a)}
+    onDeselectAllMessages={a => console.log(a)}
+    onDeleteSelectedMessages={a => console.log(a)}
+    onMarkAsReadSelectedMessages={a => console.log(a)}
+    onMarkAsUnreadSelectedMessages={a => console.log(a)}
+    onApplyLabelSelectedMessages={a => console.log(a)}
+    onRemoveLabelSelectedMessages={a => console.log(a)}
+  />
+
 );

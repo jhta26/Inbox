@@ -14,7 +14,7 @@ function MessagesComponent({
     <div className="MessagesComponent">
       {messages.map((message, index) =>
         <MessageComponent
-          key={index}
+          key={message.id}
           selected={selectedMessageIds.includes(message.id)}
           message={message}
           selectedMessageIds={selectedMessageIds}
