@@ -1,10 +1,11 @@
 import React from 'react'
-
+var Loader= require('react-loader')
 export default class MessageComponent extends React.Component{
 constructor(props){
   super(props)
   this.state={
-    messageVisible:false
+    messageVisible:false,
+    loaded:false
   }
 }
 
@@ -18,6 +19,9 @@ _handleSelectChange=(event)=>{
 _handleStarClick=(event)=>{
   event.preventDefault()
   this.props.message.starred?this.props.onUnstarMessage(this.props.message.id):this.props.onStarMessage(this.props.message.id)
+  this.setState({
+    loaded:true
+  })
 }
 
 _handleReadClick=(event)=>{
@@ -35,20 +39,31 @@ render(){
 var starred = this.props.message.starred? "star fa fa-star":"star fa fa-star-o"
 var read = this.props.message.read? "read":"unread"
 
+var rightNow = new Date()
+var monthNow = rightNow.getMonth()
+var dayNow = rightNow.getDay()
+var minutesNow = rightNow.getMinutes()
+var hoursNow = rightNow.getHours()
+var theCurrentTime = `${monthNow}/${dayNow} ${hoursNow}:${minutesNow}`
+var date = this.props.message.date
+
 
   return(
 <div className={`row message ${read} ${this.props.selected?'selected':''}`}>
-  <div className="col-xs-1">
+  <div className="col-xs-2 contain">
     <div className="row">
       <div className="col-xs-2">
-        {this.props.selected?<input type="checkbox" checked="checked" onChange={this._handleSelectChange}/>:<input type="checkbox" onChange={this._handleSelectChange}/>}
+        <input type="checkbox" checked={this.props.selected===true} onChange={this._handleSelectChange}/>
       </div>
-      <div className="col-xs-2">
+      <div className="col-xs-2">    
         <i className={`${starred}`} onClick={this._handleStarClick}></i>
+      </div>
+       <div className="col-xs-8">
+        <p className='dateText'>{this.props.message.date}</p>
       </div>
     </div>
   </div>
-  <div className="col-xs-11">
+  <div className="col-xs-10">
   {this.props.message.labels.length>0?this.props.message.labels.map(label=><span className="label label-warning" key={label}>{label}</span>):null}
     <a href="#" onClick={this._handleReadClick}>
       {this.props.message.subject}
@@ -63,110 +78,3 @@ var read = this.props.message.read? "read":"unread"
 }
 }
 
-
-
-// import React from 'react';
-
-// export default class MessageComponent extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       messageVisible: false,
-//       readOrNot: this.props.message.read ? 'read' : 'unread',
-//       checkOrNot: this.props.message.selected ? 'checked' : '',
-//       starOrNot: this.props.message.starred ? 'fa fa-star' : 'fa fa-star-o'
-//     };
-//   }
-
-//   _handleSelectChange = event => {
-//     if (this.state.checkOrNot == 'checked') {
-//       this.setState({ checkOrNot: '' });
-//       this.props.message.selected = false;
-//     }
-//     if (this.state.checkOrNot == '') {
-//       this.setState({ checkOrNot: 'checked' });
-//       this.props.message.selected = true;
-//     }
-
-//     this.props.selected
-//       ? this.props.onSelectMessage(this.props.message)
-//       : this.props.onDeselectMessage(this.props.message);
-//   };
-//   _handleReadClick = event => {
-//     event.preventDefault();
-
-//     if (this.state.readOrNot == 'read') {
-//       this.setState({ readOrNot: 'unread' });
-//       this.props.message.read = false;
-//     } else if (this.state.readOrNot == 'unread') {
-//       this.setState({ readOrNot: 'read' });
-//       this.props.message.read = true;
-//     }
-
-//     this.props.onMarkAsReadMessage(this.props.message);
-//   };
-//   _handleStarClick = event => {
-//     event.preventDefault();
-
-//     if (this.state.starOrNot == 'fa fa-star') {
-//       this.setState({ starOrNot: 'fa fa-star-o' });
-//       this.props.message.starred = false;
-//     } else if (this.state.starOrNot == 'fa fa-star-o') {
-//       this.setState({ starOrNot: 'fa fa-star' });
-//       this.props.message.starred = true;
-//     }
-//     this.props.message.starred
-//       ? this.props.onStarMessage(this.props.message)
-//       : this.props.onUnstarMessage(this.props.message);
-//   };
-
-//   render() {
-//     const read = this.state.readOrNot == 'read' ? 'read' : 'unread';
-//     const check = this.state.checkOrNot ? 'checked' : '';
-//     const star = this.state.starOrNot ? 'fa fa-star' : 'fa fa-star-o';
-
-//     return (
-//       <div className="MessageComponent">
-//         <div
-//           className={`row message ${this.state.readOrNot == 'read'
-//             ? 'read'
-//             : 'unread'} ${this.props.selected ? 'selected' : 'unselected'}`}>
-//           <div className="col-xs-1">
-//             <div className="row">
-//               <div className="col-xs-2">
-//                 {this.state.checkOrNot == 'checked'
-//                   ? <input
-//                       type="checkbox"
-//                       checked="checked"
-//                       onClick={this._handleSelectChange}
-//                     />
-//                   : <input
-//                       type="checkbox"
-//                       onClick={this._handleSelectChange}
-//                     />}
-//               </div>
-//               <div className="col-xs-2">
-//                 <i
-//                   className={`star ${this.state.starOrNot == 'fa fa-star'
-//                     ? 'fa fa-star'
-//                     : 'fa fa-star-o'}`}
-//                   onClick={this._handleStarClick}
-//                 />
-//               </div>
-//             </div>
-//           </div>
-//           <div className="col-xs-11">
-//             {this.props.message.labels.map((item, index) =>
-//               <span className="label label-warning">
-//                 {' '}{item}{' '}
-//               </span>
-//             )}
-//             <a href="#" onClick={this._handleReadClick}>
-//               {this.props.message.subject}
-//             </a>
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }

@@ -5,7 +5,13 @@ function ComposeFormComponent({ onSubmit, onCancel }) {
     event.preventDefault();
     var subject = event.target.subject.value.trim();
     var body = event.target.body.value.trim();
-    onSubmit({ subject, body });
+    var newDate = new Date()
+    var month = newDate.getMonth()
+    var date = newDate.getDate()
+    var minutes= newDate.getMinutes()
+    var hour = newDate.getHours()
+    var date= `${month}/${date} ${hour}:${minutes}`
+    onSubmit({ subject, body,date });
   };
   const _handleClickCancel = event => {
     event.preventDefault();
@@ -14,14 +20,14 @@ function ComposeFormComponent({ onSubmit, onCancel }) {
 
   return (
     <div className="ComposeFormComponent">
-      <form className="form-horizontal well">
+      <form className="form-horizontal well" onSubmit={_handleClick}>
         <div className="form-group">
           <div className="col-sm-8 col-sm-offset-2">
             <h4>Compose Message</h4>
           </div>
         </div>
         <div className="form-group">
-          <label for="subject" className="col-sm-2 control-label">
+          <label className="col-sm-2 control-label">
             Subject
           </label>
           <div className="col-sm-8">
@@ -35,7 +41,7 @@ function ComposeFormComponent({ onSubmit, onCancel }) {
           </div>
         </div>
         <div className="form-group">
-          <label for="body" className="col-sm-2 control-label">
+          <label className="col-sm-2 control-label">
             Body
           </label>
           <div className="col-sm-8">
@@ -48,7 +54,6 @@ function ComposeFormComponent({ onSubmit, onCancel }) {
               type="submit"
               value="Send"
               className="btn btn-primary"
-              onClick={_handleClick}
             />
             <input
               type="reset"

@@ -13,15 +13,6 @@ export default function ToolbarComponent({
   onDeleteSelectedMessages
 }) {
 
-
-// { messages.filter(a => a.read === false).length > 0
-//       ? messages.filter(a => a.read ===false).length === messages.length
-//         ? 'fa fa-check-square-o'
-//         : 'fa fa-minus-square-o'
-//       : 'fa fa-square-o'}
-
-
-
   var _handleRead = () => {
     
     onMarkAsReadSelectedMessages();
@@ -63,15 +54,6 @@ export default function ToolbarComponent({
   }
 var unread = messages.filter(a => a.read === false).length
 var toggleButton= (messages.length===selectedMessageCount)?'fa fa-minus-square-o':((selectedMessageCount===0)?'fa fa-check-square-o':'fa fa-square-o')
-  // if(messages.length===selectedMessageCount){
-  //   return 'fa fa-minus-square-o'
-  // }
-  // if(messages.length>selectedMessageCount&&selectedMessageCount>0){
-  //   return 'fa fa-square-o'
-  // }
-  // if(selectedMessageCount===0){
-  //   return 'fa fa-check-square-o'
-  // }
 
   return (
     <div className="row toolbar">
