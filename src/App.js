@@ -21,7 +21,7 @@ export default class App extends Component {
 
   componentDidMount() {
     getMessages()
-      .then(messages =>{
+      .then(messages =>{console.log(messages)
         this.setState({
           messages:messages,
           loaded:true
@@ -60,7 +60,7 @@ export default class App extends Component {
 
   _onMarkAsReadMessage = messageId => {
     updateMessage(messageId,{read:true})
-      .then(updatedMessage => {console.log(updatedMessage)
+      .then(updatedMessage => {
         this.setState(prevState => {
           return {
             messages: prevState.messages.map(
@@ -195,7 +195,7 @@ export default class App extends Component {
       updateMessage(message,{read:false}).then(updatedMessage=>{
         this.setState(prevState=>{
             return{
-              messages:prevState.messages.map(a=>a.id===updatedMessage.id?a=updatedMessage:a),
+              messages:prevState.messages.map(a=>a.id===updatedMessage.id&&a.read===true?a=updatedMessage:a),
               loaded:true
             }
           

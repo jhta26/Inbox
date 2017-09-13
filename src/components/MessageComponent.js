@@ -53,7 +53,7 @@ var date = this.props.message.date
   <div className="col-xs-2 contain">
     <div className="row">
       <div className="col-xs-2">
-        <input type="checkbox" checked={this.props.selected===true} onChange={this._handleSelectChange}/>
+        <input className='checkbox' type="checkbox" checked={this.props.selected===true} onChange={this._handleSelectChange}/>
       </div>
       <div className="col-xs-2">    
         <i className={`${starred}`} onClick={this._handleStarClick}></i>
@@ -65,7 +65,7 @@ var date = this.props.message.date
   </div>
   <div className="col-xs-10">
   {this.props.message.labels.length>0?this.props.message.labels.map(label=><span className="label label-warning" key={label}>{label}</span>):null}
-    <a href="#" onClick={this._handleReadClick}>
+    <a href="#" className='link' onClick={this._handleReadClick}>
       {this.props.message.subject}
     </a>
   </div>

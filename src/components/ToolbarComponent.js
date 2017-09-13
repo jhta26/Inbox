@@ -52,7 +52,7 @@ export default function ToolbarComponent({
   const _handleDelete = ()=>{
     onDeleteSelectedMessages()
   }
-var unread = messages.filter(a => a.read === false).length
+var unread = messages.filter(a => !a.read).length
 var toggleButton= (messages.length===selectedMessageCount)?'fa fa-minus-square-o':((selectedMessageCount===0)?'fa fa-check-square-o':'fa fa-square-o')
 
   return (
