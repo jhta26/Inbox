@@ -4,12 +4,19 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "chai": "^4.1.2",
+    "deep-freeze": "0.0.1",
+    "enzyme": "^2.9.1",
     "font-awesome": "^4.7.0",
+    "jest": "^21.0.1",
+    "moment": "^2.18.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-loader": "^2.4.2",
-    "react-native-atoz-list": "^1.0.2",
-    "react-scripts": "1.0.11"
+    "react-redux": "^5.0.6",
+    "react-scripts": "1.0.11",
+    "react-test-renderer": "^15.6.1",
+    "recompose": "^0.25.0",
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -19,6 +26,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "devDependencies": {
-    "@storybook/react": "^3.2.7"
+    "@storybook/react": "^3.2.7",
+    "redux-devtools": "^3.4.0"
   }
 }

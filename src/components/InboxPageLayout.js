@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 function InboxPageLayout(props) {
   return (
     <div className="InboxPageLayout">

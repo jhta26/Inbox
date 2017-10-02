@@ -6,7 +6,6 @@ import ToolbarComponent from './ToolbarComponent';
 import MessagesComponent from './MessagesComponent';
 import ComposeFormComponent from './ComposeFormComponent';
 
-
 var messages = [
   {
     id: 1,
@@ -139,67 +138,70 @@ var items = [
 ];
 
 var selectedMessageIds = [1, 4, 5];
-var showComposeForm=true
-var showComposeForm2=false
+var showComposeForm = true;
+var showComposeForm2 = false;
 
-storiesOf('InboxPageLayout', module).add('Happy path', () =>
-  <InboxPageLayout>
-    {showComposeForm?<ComposeFormComponent
-      onSubmit={ids => console.log(ids)}
-      onCancel={a => console.log(a)}
-    />:null}
-    <ToolbarComponent
-      messages={messages}
-      showComposeForm={showComposeForm}
-      selectedMessageCount={3}
-      onOpenComposeForm={a => console.log(a)}
-      onSelectAllMessages={a => console.log(a)}
-      onDeselectAllMessages={a => console.log(a)}
-      onDeleteSelectedMessages={a => console.log(a)}
-      onMarkAsReadSelectedMessages={a => console.log(a)}
-      onMarkAsUnreadSelectedMessages={a => console.log(a)}
-      onApplyLabelSelectedMessages={a => console.log(a)}
-      onRemoveLabelSelectedMessages={a => console.log(a)}
-    />
-    <MessagesComponent
-      messages={messages}
-      selectedMessageIds={[1, 4, 5]}
-      onMarkAsReadMessage={itemId => console.log(itemId)}
-      onSelectMessage={itemId => console.log(itemId)}
-      onDeselectMessage={itemId => console.log(itemId)}
-      onStarMessage={itemId => console.log(itemId)}
-      onUnstarMessage={itemId => console.log(itemId)}
-    />
-  </InboxPageLayout>
-).add('no form', () =>
-  <InboxPageLayout>
-    {showComposeForm2?<ComposeFormComponent
-      onSubmit={ids => console.log(ids)}
-      onCancel={a => console.log(a)}
-    />:null}
-    <ToolbarComponent
-      messages={messages}
-      showComposeForm={showComposeForm2}
-      onOpenComposeForm={a => console.log(a)}
-      onSelectAllMessages={a => console.log(a)}
-      onDeselectAllMessages={a => console.log(a)}
-      onDeleteSelectedMessages={a => console.log(a)}
-      onMarkAsReadSelectedMessages={a => console.log(a)}
-      onMarkAsUnreadSelectedMessages={a => console.log(a)}
-      onApplyLabelSelectedMessages={a => console.log(a)}
-      onRemoveLabelSelectedMessages={a => console.log(a)}
-    />
-    <MessagesComponent
-      messages={messages}
-      selectedMessageIds={[1, 4, 5]}
-      onMarkAsReadMessage={itemId => console.log(itemId)}
-      onSelectMessage={itemId => console.log(itemId)}
-      onDeselectMessage={itemId => console.log(itemId)}
-      onStarMessage={itemId => console.log(itemId)}
-      onUnstarMessage={itemId => console.log(itemId)}
-    />
-
-  </InboxPageLayout>
-);
-
-
+storiesOf('InboxPageLayout', module)
+  .add('Happy path', () =>
+    <InboxPageLayout>
+      {showComposeForm
+        ? <ComposeFormComponent
+            onSubmit={ids => console.log(ids)}
+            onCancel={a => console.log(a)}
+          />
+        : null}
+      <ToolbarComponent
+        messages={messages}
+        showComposeForm={showComposeForm}
+        selectedMessageCount={3}
+        onOpenComposeForm={a => console.log(a)}
+        onSelectAllMessages={a => console.log(a)}
+        onDeselectAllMessages={a => console.log(a)}
+        onDeleteSelectedMessages={a => console.log(a)}
+        onMarkAsReadSelectedMessages={a => console.log(a)}
+        onMarkAsUnreadSelectedMessages={a => console.log(a)}
+        onApplyLabelSelectedMessages={a => console.log(a)}
+        onRemoveLabelSelectedMessages={a => console.log(a)}
+      />
+      <MessagesComponent
+        messages={messages}
+        selectedMessageIds={[1, 4, 5]}
+        onMarkAsReadMessage={itemId => console.log(itemId)}
+        onSelectMessage={itemId => console.log(itemId)}
+        onDeselectMessage={itemId => console.log(itemId)}
+        onStarMessage={itemId => console.log(itemId)}
+        onUnstarMessage={itemId => console.log(itemId)}
+      />
+    </InboxPageLayout>
+  )
+  .add('no form', () =>
+    <InboxPageLayout>
+      {showComposeForm2
+        ? <ComposeFormComponent
+            onSubmit={ids => console.log(ids)}
+            onCancel={a => console.log(a)}
+          />
+        : null}
+      <ToolbarComponent
+        messages={messages}
+        showComposeForm={showComposeForm2}
+        onOpenComposeForm={a => console.log(a)}
+        onSelectAllMessages={a => console.log(a)}
+        onDeselectAllMessages={a => console.log(a)}
+        onDeleteSelectedMessages={a => console.log(a)}
+        onMarkAsReadSelectedMessages={a => console.log(a)}
+        onMarkAsUnreadSelectedMessages={a => console.log(a)}
+        onApplyLabelSelectedMessages={a => console.log(a)}
+        onRemoveLabelSelectedMessages={a => console.log(a)}
+      />
+      <MessagesComponent
+        messages={messages}
+        selectedMessageIds={[1, 4, 5]}
+        onMarkAsReadMessage={itemId => console.log(itemId)}
+        onSelectMessage={itemId => console.log(itemId)}
+        onDeselectMessage={itemId => console.log(itemId)}
+        onStarMessage={itemId => console.log(itemId)}
+        onUnstarMessage={itemId => console.log(itemId)}
+      />
+    </InboxPageLayout>
+  );

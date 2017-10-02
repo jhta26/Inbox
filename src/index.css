@@ -6,48 +6,46 @@
   margin-left: 5px;
 }
 
-.message.read{
-	background-color: lightgray;
+.message.read {
+  background-color: lightgray;
 }
 
-.message.unread{
-	font-weight:bold;
+.message.unread {
+  font-weight: bold;
 }
-.message.selected{
-	background-color: lightyellow
+.message.selected {
+  background-color: lightyellow;
 }
-.toolbar{
-	margin:10px;
-	padding:5px;
+.toolbar {
+  margin: 10px;
+  padding: 5px;
 }
-.message{
-	
-	padding:3px;
-	border:1px dotted black;
-	margin:7px;
+.message {
+  padding: 3px;
+  border: 1px dotted black;
+  margin: 7px;
 }
-.label{
-	margin-left: 5px;
-	margin-right: 5px;
+.label {
+  margin-left: 5px;
+  margin-right: 5px;
 }
-.messageBody{
-	text-align: center;
-	margin:20px;
-
+.messageBody {
+  text-align: center;
+  margin: 20px;
 }
-.date{
-	font-size: 11px;
-	width:40px;
-	display:flex;
-	flex-direction:row;
-	justify-content:center;
+.date {
+  font-size: 11px;
+  width: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
-.dateText{
-	width:100%;
-	text-align:center;
+.dateText {
+  width: 100%;
+  text-align: center;
 }
 
-h1{
-	text-align: center;
-	font-size: 40px;
+h1 {
+  text-align: center;
+  font-size: 40px;
 }
