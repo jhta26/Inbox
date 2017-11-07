@@ -5,9 +5,9 @@ import env from '../env';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const enhancers = composeEnhancers(
-  applyMiddleware(thunkMiddleware.withExtraArgument(env))
+    applyMiddleware(thunkMiddleware.withExtraArgument(env))
 );
 
 export default function setupStore() {
-  return createStore(rootReducer, enhancers);
+    return createStore(rootReducer, enhancers);
 }
