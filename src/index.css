@@ -87,19 +87,7 @@ h1 {
     box-shadow: 2px 2px 3px lightgrey;
 }
 
-.footerEmail {
-    font-family: 'Brush Script MT';
-    background-color: red;
-    position: fixed;
-    bottom: 0px;
-    width: 100vw;
-    color: white;
-    padding: 8px;
-    font-size: 12px;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-}
+
 
 .applyRemoveLabel {
     width: 130px;

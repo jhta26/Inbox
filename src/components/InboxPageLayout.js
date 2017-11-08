@@ -13,7 +13,7 @@ function InboxPageLayout(props) {
       <div className='col-lg-10'>
       {props.children[2]}
       </div>
-      <div className="footerEmail">Jmail</div>
+      
       </div>
        
     </div>
