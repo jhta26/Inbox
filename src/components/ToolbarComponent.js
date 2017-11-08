@@ -62,7 +62,7 @@ export default function ToolbarComponent({
 
   return (
     <div className="row toolbar">
-      <div className="col-md-12">
+      <div className="tool col-md-12">
         <p className="pull-right">
           <span className="badge badge">{unread}</span>
           unread messages
