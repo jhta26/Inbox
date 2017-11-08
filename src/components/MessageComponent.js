@@ -49,6 +49,7 @@ export default class MessageComponent extends React.Component {
     var date = this.props.message.date;
 
     return (
+      <div className='MessageComponent'>
       <div
         className={`row message ${read} ${this.props.selected
           ? 'selected'
@@ -92,6 +93,7 @@ export default class MessageComponent extends React.Component {
               </div>
             : null}
         </div>
+      </div>
       </div>
     );
   }

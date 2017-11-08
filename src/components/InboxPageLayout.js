@@ -5,12 +5,17 @@ function InboxPageLayout(props) {
     <div className="InboxPageLayout">
       <div className="headerEmail">Jmail<span className="titleBox"></span></div>
       {props.children[0]}
+      <div className='row inboxLayoutRow'>
+      <div className='col-lg-2'>
       {props.children[1]}
-      <div className='border'></div>
-      
+      </div>
+      <div className='border col'></div>
+      <div className='col-lg-10'>
       {props.children[2]}
-      
-       <div className="footerEmail">Jmail</div>
+      </div>
+      <div className="footerEmail">Jmail</div>
+      </div>
+       
     </div>
   );
 }

@@ -2,89 +2,114 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.css';
 @import '../node_modules/bootstrap/dist/css/bootstrap-theme.css';
 
-[type="submit"] + [type="reset"] {
-  margin-left: 5px;
+[type="submit"]+[type="reset"] {
+    margin-left: 5px;
 }
 
 .message.read {
-  background-color: lightgray;
+    background-color: lightgray;
 }
 
 .message.unread {
-  font-weight: bold;
+    font-weight: bold;
 }
-.message.selected {
-  background-color: lightyellow;
-}
-.toolbar {
-  margin: 10px;
-  padding: 5px;
-}
-.message {
-  padding: 3px;
-  border: 1px dotted black;
-  margin: 7px;
-}
-.label {
-  margin-left: 5px;
-  margin-right: 5px;
-}
-.messageBody {
-  text-align: center;
-  margin: 20px;
-}
-.date {
-  font-size: 11px;
-  width: 40px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.dateText {
-  width: 100%;
-  text-align: center;
-}
-.tool{
-  margin:0px;
-  padding-bottom:0px;
-  
-}
-.border{
-  border-bottom:  solid red;
 
+.message.selected {
+    background-color: lightyellow;
 }
-.main{
-  background-color: gray
+
+.toolbar {
+    margin: 10px;
+    padding: 5px;
+}
+
+.message {
+    padding: 3px;
+    border: 1px dotted black;
+    margin: 7px;
+}
+
+.label {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.messageBody {
+    text-align: center;
+    margin: 20px;
+}
+
+.date {
+    font-size: 11px;
+    width: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.dateText {
+    width: 100%;
+    text-align: center;
+}
+
+.tool {
+    margin: 0px;
+    padding-bottom: 0px;
+}
+
+.border {
+    border-right: solid #e6e8ed;
+    height: 1000px;
+}
+
+.main {
+    background-color: gray
 }
 
 h1 {
-  text-align: center;
-  font-size: 40px;
-}
-.MessagesComponent{
-  margin:12px;
-}
-.headerEmail{
-  font-family: 'Brush Script MT';
-  background-color: red;
-  color: white;
-  padding: 12px;
-  padding-left: 30px;
-  font-size: 25px;
-  letter-spacing: 6px;
-  box-shadow: 2px 2px 3px lightgrey;
+    text-align: center;
+    font-size: 40px;
 }
 
-.footerEmail{
-  font-family: 'Brush Script MT';
-  background-color: red;
-  position: fixed;
-  bottom:0px;
-  width: 100vw;
-  color: white;
-  padding: 8px;
-  font-size: 12px;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 5px;
+.MessagesComponent {
+    margin-top:20px;
+    width: 100%;
+}
+
+.headerEmail {
+    font-family: 'Brush Script MT';
+    background-color: red;
+    color: white;
+    padding: 12px;
+    padding-left: 30px;
+    font-size: 25px;
+    letter-spacing: 6px;
+    box-shadow: 2px 2px 3px lightgrey;
+}
+
+.footerEmail {
+    font-family: 'Brush Script MT';
+    background-color: red;
+    position: fixed;
+    bottom: 0px;
+    width: 100vw;
+    color: white;
+    padding: 8px;
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.applyRemoveLabel {
+    width: 130px;
+}
+
+.toolButton {
+    width: 130px;
+}
+
+.inboxLayoutRow {
+    display: flex;
+    flex-direction: row;
 }

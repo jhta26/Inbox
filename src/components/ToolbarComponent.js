@@ -61,31 +61,32 @@ export default function ToolbarComponent({
       : selectedMessageCount === 0 ? 'fa fa-check-square-o' : 'fa fa-square-o';
 
   return (
-    <div className="row toolbar">
+    <div className="toolbar">
       <div className="tool col-md-12">
-        <p className="pull-right">
+        <p>
           <span className="badge badge">{unread}</span>
           unread messages
         </p>
 
-        <a className="btn btn-danger">
+        <a className="toolButton btn btn-danger">
           <i className="fa fa-plus" onClick={_handleCompose} />
         </a>
 
-        <button className="btn btn-default">
+        <button className="toolButton btn btn-default">
           <i className={toggleButton} onClick={_handleToggle} />
         </button>
 
-        <button className="btn btn-default" onClick={_handleRead}>
+        <button className="toolButton btn btn-default" onClick={_handleRead}>
           Mark As Read
         </button>
 
-        <button className="btn btn-default" onClick={_handleUnread}>
+        <button className="toolButton btn btn-default" onClick={_handleUnread}>
           Mark As Unread
         </button>
 
+
         <select
-          className="form-control label-select"
+          className="applyRemoveLabel form-control label-select"
           onChange={_handleApplyLabel}>
           <option>Apply label</option>
           <option value="dev">dev</option>
@@ -94,7 +95,7 @@ export default function ToolbarComponent({
         </select>
 
         <select
-          className="form-control label-select"
+          className="applyRemoveLabel form-control label-select"
           onChange={_handleRemoveLabel}>
           <option>Remove label</option>
           <option value="dev">dev</option>

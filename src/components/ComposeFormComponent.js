@@ -3,8 +3,8 @@ import React from 'react';
 function ComposeFormComponent({ onSubmit, onCancel }) {
   const _handleClick = event => {
     event.preventDefault();
-    var subject = event.target.subject.value.trim();
-    var body = event.target.body.value.trim();
+    var subject = event.target.subject.value.trim()||' ';
+    var body = event.target.body.value.trim()||' ';
     var newDate = new Date();
     var month = newDate.getMonth()+1;
     var date = newDate.getDate();
