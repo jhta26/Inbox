@@ -6,7 +6,7 @@ function ComposeFormComponent({ onSubmit, onCancel }) {
     var subject = event.target.subject.value.trim();
     var body = event.target.body.value.trim();
     var newDate = new Date();
-    var month = newDate.getMonth();
+    var month = newDate.getMonth()+1;
     var date = newDate.getDate();
     var minutes = newDate.getMinutes();
     var hour = newDate.getHours();

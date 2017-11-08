@@ -38,7 +38,7 @@ export default function rootReducer(
         case 'COMPOSE_FORM':
             return { ...currentState, showComposeForm: true };
         case 'CREATE_MESSAGE':
-         
+
             var createMess = currentState;
             createMess.messages.slice();
 
