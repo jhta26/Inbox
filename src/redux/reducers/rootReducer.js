@@ -41,8 +41,11 @@ export default function rootReducer(
 
             var createMess = currentState;
             createMess.messages.slice();
-
+            
             createMess.messages.unshift(action.messages);
+            console.log(createMess.messages)
+            createMess.messages=createMess.messages.sort((a,b)=>~~a.date-~~b.date)
+            console.log(createMess.messages)
             return {
                 ...currentState,
                 showComposeForm: false,

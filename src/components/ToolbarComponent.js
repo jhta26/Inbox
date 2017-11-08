@@ -90,7 +90,7 @@ export default function ToolbarComponent({
           <option>Apply label</option>
           <option value="dev">dev</option>
           <option value="personal">personal</option>
-          <option value="gschool">gschool</option>
+          <option value="gschool">school</option>
         </select>
 
         <select
@@ -99,7 +99,7 @@ export default function ToolbarComponent({
           <option>Remove label</option>
           <option value="dev">dev</option>
           <option value="personal">personal</option>
-          <option value="gschool">gschool</option>
+          <option value="gschool">school</option>
         </select>
 
         <button className="btn btn-default">

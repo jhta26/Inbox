@@ -3,6 +3,7 @@ import InboxPageLayout from './InboxPageLayout';
 import ToolbarComponent from './ToolbarComponent';
 import MessagesComponent from './MessagesComponent';
 import ComposeFormComponent from './ComposeFormComponent';
+import Nav from './Nav'
 
 export default function InboxPage({
   messages,
@@ -29,6 +30,7 @@ export default function InboxPage({
   return (
     <div className="InboxPage">
       <InboxPageLayout>
+      
         {showComposeForm
           ? <ComposeFormComponent
               onSubmit={onComposeFormSubmit}
