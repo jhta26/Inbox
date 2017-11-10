@@ -68,10 +68,10 @@ export default function ToolbarComponent({
           unread messages
         </p>
 
-        <a className="toolButton btn btn-danger">
-          <i className="fa fa-plus" onClick={_handleCompose} />
-        </a>
 
+        <button className="compose toolButton btn btn-danger" onClick={_handleCompose}>
+          Compose
+        </button>
         <button className="toolButton btn btn-default">
           <i className={toggleButton} onClick={_handleToggle} />
         </button>
