@@ -49,8 +49,8 @@ var selected = true;
 
 describe('tests the messageComponent', () => {
     it('should appear with a subject', () => {
-        let shallowWrapper = shallow( <
-            MessageComponent message = { message } selected = { selected } onMarkAsReadMessage = { onMarkAsReadMessage } onSelectMessage = { onSelectMessage } onDeselectMessage = { onDeselectMessage } onStarMessage = { onStarMessage } onUnstarMessage = { onUnstarMessage }
+        let shallowWrapper = shallow( 
+            <MessageComponent message = { message } selected = { selected } onMarkAsReadMessage = { onMarkAsReadMessage } onSelectMessage = { onSelectMessage } onDeselectMessage = { onDeselectMessage } onStarMessage = { onStarMessage } onUnstarMessage = { onUnstarMessage }
             />
         );
         expect(shallowWrapper.find('a')).toHaveLength(1);
@@ -111,8 +111,12 @@ describe('tests the messageComponent', () => {
     it('should test onSelectMessage', () => {
         mount( <
                 MessageComponent message = { messages[0] } selected = {
-                    (selected = false) } selectedMessageIds = {
-                    [2] } onMarkAsReadMessage = { onMarkAsReadMessage } onSelectMessage = { onSelectMessage } onDeselectMessage = { onDeselectMessage } onStarMessage = { onStarMessage } onUnstarMessage = { onUnstarMessage }
+                    (selected = false)
+                }
+                selectedMessageIds = {
+                    [2]
+                }
+                onMarkAsReadMessage = { onMarkAsReadMessage } onSelectMessage = { onSelectMessage } onDeselectMessage = { onDeselectMessage } onStarMessage = { onStarMessage } onUnstarMessage = { onUnstarMessage }
                 />
             )
             .find('.checkbox')
@@ -123,8 +127,12 @@ describe('tests the messageComponent', () => {
     it('should test onDeselectMessage', () => {
         mount( <
                 MessageComponent message = { messages[0] } selected = {
-                    (selected = true) } selectedMessageIds = {
-                    [1] } onMarkAsReadMessage = { onMarkAsReadMessage } onSelectMessage = { onSelectMessage } onDeselectMessage = { onDeselectMessage } onStarMessage = { onStarMessage } onUnstarMessage = { onUnstarMessage }
+                    (selected = true)
+                }
+                selectedMessageIds = {
+                    [1]
+                }
+                onMarkAsReadMessage = { onMarkAsReadMessage } onSelectMessage = { onSelectMessage } onDeselectMessage = { onDeselectMessage } onStarMessage = { onStarMessage } onUnstarMessage = { onUnstarMessage }
                 />
             )
             .find('.checkbox')
